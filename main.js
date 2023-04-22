@@ -62,7 +62,7 @@ function game(playerSelection) {
 
 
 let computerSelection;
-let playerSelection = prompt("Rock, Paper or Scissors")
-playerSelection = new RegExp(playerSelection, 'i')
-console.log(`You Won ${game(playerSelection)} times`)
+//let playerSelection = prompt("Rock, Paper or Scissors")
+//playerSelection = new RegExp(playerSelection, 'i')
+//console.log(`You Won ${game(playerSelection)} times`)
 
