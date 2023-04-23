@@ -65,7 +65,7 @@ function game(playerSelection) {
     return false;
 }
 
-function updateScore(win){
+function updateScore(win) {
     if (win){
         pScore++;
         pScoreDiv.textContent = pScore;
@@ -73,17 +73,31 @@ function updateScore(win){
         cScore++;
         cScoreDiv.textContent = cScore;
     }
+    displayResult();
+}
+
+function displayResult() {
+    let result = document.querySelector('.result');
+    if (pScore === 5){
+        result.textContent = "You Won! Congratulations"
+        disableButtons();
+    } else if (cScore === 5){
+        result.textContent = "You Lost... Better luck next time"
+        disableButtons();
+    }
+}
+
+function buttonHandler(e){
+    updateScore(game(e.target.childNodes[0].data));
+}
+
+function disableButtons() {
+    buttons.forEach((button)=>{
+        button.removeEventListener('click',buttonHandler);
+    })
 }
 
 const buttons = document.querySelectorAll('button');
 buttons.forEach((button) =>{
-    button.addEventListener('click',(e)=>{
-        updateScore(game(e.target.childNodes[0].data));
-    })
+    button.addEventListener('click',buttonHandler)
 })
-
-
-//let playerSelection = prompt("Rock, Paper or Scissors")
-//playerSelection = new RegExp(playerSelection, 'i')
-//console.log(`You Won ${game(playerSelection)} times`)
-
