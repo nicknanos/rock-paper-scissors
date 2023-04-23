@@ -1,3 +1,10 @@
+let pScore = 0;
+let cScore = 0;
+const pScoreDiv = document.querySelector('.player');
+const cScoreDiv = document.querySelector('.computer');
+
+let computerSelection;
+
 function getComputerChoise() {
     let rand = Math.floor(Math.random() * 3) + 1;
     switch(rand) {
@@ -46,22 +53,36 @@ function play(playerSelection,computerSelection){
 }
 
 function game(playerSelection) {
+    const div = document.querySelector('.roundResult');
     let count = 0;
-    let result;
-    for(let i = 0; i <5; i++){
        computerSelection = getComputerChoise();
        result =  play(playerSelection,computerSelection);
-       console.log(result);
+       div.setAttribute('style', 'padding: 0;');  
+       div.textContent = result;
        if(result.charAt(4)=='W'){
-        count += 1;
+        return true;
        }
-    }
-    return count;
+    return false;
 }
 
+function updateScore(win){
+    if (win){
+        pScore++;
+        pScoreDiv.textContent = pScore;
+    } else{
+        cScore++;
+        cScoreDiv.textContent = cScore;
+    }
+}
+
+const buttons = document.querySelectorAll('button');
+buttons.forEach((button) =>{
+    button.addEventListener('click',(e)=>{
+        updateScore(game(e.target.childNodes[0].data));
+    })
+})
 
 
-let computerSelection;
 //let playerSelection = prompt("Rock, Paper or Scissors")
 //playerSelection = new RegExp(playerSelection, 'i')
 //console.log(`You Won ${game(playerSelection)} times`)

@@ -4,26 +4,29 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="main.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js" defer></script>
     <title>Rock Paper Scissors</title>
 </head>
 <body>
     <header>Rock - Paper - Scissors</header>
     <main>
-        <h3>Lets Play!</h3>
-        <h4>Pick your "weapon":</h4>
-        <div class="choice">
-            <button>Rock</button>
-            <button>Paper</button>
-            <button>Scissors</button>
+        <div class="container">
+            <h3>Lets Play!</h3>
+            <h4>Pick your "weapon":</h4>
+            <div class="choice">
+                <button>Rock</button>
+                <button>Paper</button>
+                <button>Scissors</button>
+            </div>
+            <div class="score">
+                <span class="player">0</span>
+                <span>-</span>
+                <span class="computer">0</span>
+            </div>
+            <div class="roundResult"></div>
+            <div class="result">You Won! 5 over 2</div>
         </div>
-        <div class="score">
-            <span class="player">0</span>
-            <span>-</span>
-            <span class="computer">1</span>
-        </div>
-        <div class="roundResult">You Won!</div>
-        <div class="result">You Won! 5 over 2</div>
     </main>
 </body>
 </html>
