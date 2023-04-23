@@ -95,6 +95,15 @@ function disableButtons() {
     buttons.forEach((button)=>{
         button.removeEventListener('click',buttonHandler);
     })
+    displayReplay();
+}
+
+function displayReplay() {
+    let replay = document.querySelector('.replay');
+    replay.setAttribute('style', 'display:block;');
+    replay.addEventListener('click',()=>{
+        location.reload()
+    });  
 }
 
 const buttons = document.querySelectorAll('button');

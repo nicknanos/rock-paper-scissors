@@ -94,6 +94,11 @@ button:active {
     text-align: center;
 }
 
+.score span {
+    display: block;
+    margin-top: 5px;
+}
+
 .score p {
     margin: 0px;
     padding: 0px;
@@ -108,4 +113,9 @@ button:active {
 .result {
     font-size: 40px;
     color: var(--fontColor);
+}
+
+button.replay {
+    display: none;
+    font-size: 17px;
 }
