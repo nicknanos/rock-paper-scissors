@@ -21,11 +21,11 @@ function getComputerChoise() {
 };
 
 function victoryMessage(playerSelection){
-    return `You Won! ${playerSelection} beats ${computerSelection}`;
+    return `Round Won! ${playerSelection} beats ${computerSelection}`;
 }
 
 function defeatMessage(playerSelection){
-    return `You Lost:( ${computerSelection} beats ${playerSelection}`;
+    return `Round Lost:( ${computerSelection} beats ${playerSelection}`;
 }
 
 function play(playerSelection,computerSelection){
@@ -55,21 +55,18 @@ function play(playerSelection,computerSelection){
 function game(playerSelection) {
     const div = document.querySelector('.roundResult');
     let count = 0;
-       computerSelection = getComputerChoise();
-       result =  play(playerSelection,computerSelection);
-       div.setAttribute('style', 'padding: 0;');  
-       div.textContent = result;
-       if(result.charAt(4)=='W'){
-        return true;
-       }
-    return false;
+    computerSelection = getComputerChoise();
+    result =  play(playerSelection,computerSelection);
+    div.setAttribute('style', 'padding: 0;');  
+    div.textContent = result;
+    return result.charAt(6);
 }
 
-function updateScore(win) {
-    if (win){
+function updateScore(result) {
+    if (result === 'W'){
         pScore++;
         pScoreDiv.textContent = pScore;
-    } else{
+    } else if (result === 'L'){
         cScore++;
         cScoreDiv.textContent = cScore;
     }
